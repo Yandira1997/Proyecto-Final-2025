@@ -1,4 +1,4 @@
-import {findAllUsers, findUserById, createUser} from "../services/user.service.js"
+import {findAllUsers, findUserById, createUser, VerifyCredentials, updateUser} from "../services/user.service.js"
 
 
 export const getAllUsers = (req,res) => {
@@ -26,5 +26,26 @@ export const createUserController = async (req,res) => {
         res.status(201).json(newUser)
     }catch (err) {
         res.status(400).json({message: err.message})
+    }
+}
+
+export const updateUserController = async (req,res) => {
+    try{
+        const updated = await updateUser(req.params.id, req.body)
+        if(!updated) return res.status(404).json({msj: "usuario no encontrado"})
+        res.status(200).json(updated)
+    } catch(err) {
+        res.status(400).json({msj: err.message})
+    }
+}
+
+export const loginUser = async (req,res) => {
+    try{
+        const {email, password} =  req.body;
+        const user = await VerifyCredentials(email,password)
+        res.status(200).json({msj:"login exitoso", user});
+    }
+    catch (err) {
+        res.status(401).json({msj:err.message})
     }
 }

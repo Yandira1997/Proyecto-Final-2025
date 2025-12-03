@@ -1,10 +1,9 @@
 {
   "name": "proyecto-final",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
+  "description": "Proyecto Final",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "dev": "node --watch src/app.js"
   },
@@ -15,6 +14,8 @@
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase": "^12.6.0"
   }
 }

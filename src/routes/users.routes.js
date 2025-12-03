@@ -110,13 +110,19 @@
 //     res.send('hola desde delete')
 // })
 import { Router } from "express";
-
+import {getAllUsers , getUserById , createUserController, loginUser, updateUserController} from "../controller/users.controller.js"
+// import { authHeaders, soloAdmin } from "../middlewares/auth.js";
+import { basicAuth, checkAdmin } from "../middlewares/authBasic.js";
 const router = Router()
-import {getAllUsers , getUserById , createUserController} from "../controller/users.controller.js"
 
-router.get('/', getAllUsers);
+router.get('/', getAllUsers); // 
 router.get('/:id',getUserById);
-router.post('/', createUserController);
+
+// router.post('/',authHeaders,soloAdmin ,createUserController);
+router.post('/',basicAuth,checkAdmin ,createUserController);
+router.post('/login',loginUser)
+
+router.put('/:id', updateUserController);
 
 
 export default router
