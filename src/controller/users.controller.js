@@ -1,18 +1,19 @@
-import {findAllUsers, findUserById, createUser, VerifyCredentials, updateUser} from "../services/user.service.js"
+import {findAllUsers, findUserById, createUser, VerifyCredentials, updateUser} from "../services/user.service.js";
+import jwt from "jsonwebtoken"
 
 
-export const getAllUsers = (req,res) => {
+export const getAllUsers = async (req,res) => {
     try{
-        const users = findAllUsers();
+        const users = await findAllUsers();
         res.status(200).json(users)
     } catch(err) {
         res.status(500).json({message: err.message})
     }
 }
 
-export const getUserById = (req,res) => {
+export const getUserById = async(req,res) => {
     try{
-        const user = findUserById(req.params.id);
+        const user = await findUserById(req.params.id);
         if (!user) return res.status(404).json({message:"Usuario no encontrado"})
         res.status(200).json(user)
     } catch(err){
@@ -42,8 +43,15 @@ export const updateUserController = async (req,res) => {
 export const loginUser = async (req,res) => {
     try{
         const {email, password} =  req.body;
-        const user = await VerifyCredentials(email,password)
-        res.status(200).json({msj:"login exitoso", user});
+        const user = await VerifyCredentials(email,password);
+        const tokenPayload = {
+            id: user.id,
+            email: user.email,
+            rol:user.rol
+        };
+        const token = jwt.sign(tokenPayload,process.env.JWT_SECRET,{expiresIn:'1h'});
+
+        res.status(200).json({msj:"login exitoso",token, user});
     }
     catch (err) {
         res.status(401).json({msj:err.message})

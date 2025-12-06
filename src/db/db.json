@@ -20,37 +20,19 @@
     },
     {
       "id": 3,
-      "nombre": "Gustavo",
-      "email": "Gus4@email.com",
-      "password": "$2b$10$gc67U8A53HsXWhNLKKVEJ.ScNXRhLCa1NOlqxgSyJwNV2MCa9jTwG",
-      "rol": "sin asignar",
-      "ubicacion": "Mendoza, Argentina",
-      "experiencia": "6 años"
-    },
-    {
-      "id": 4,
-      "nombre": "Gustavo",
-      "email": "Gus4@email.com",
-      "password": "$2b$10$5YEeqO.wjnk1h6fcoa.J9.wRrwJJRrWO3w0owsltxMQIfQFmFE9J6",
-      "rol": "sin asignar",
-      "ubicacion": "Mendoza, Argentina",
-      "experiencia": "6 años"
-    },
-    {
-      "id": 5,
-      "nombre": "Gustavo",
-      "email": "gus@gmail.com",
-      "password": "$2b$10$ZMJGfVFXPUlzkESkRbImAu1/cocWPdoEN6HnTDAnQaGXnC9AaJ3Km",
-      "rol": "profe",
+      "nombre": "Javier",
+      "email": "jav@gmail.com",
+      "password": "$2b$10$cPtxInjiw/FwtiJy2wtCkOpnkP83VkQxOt01FF1/YXsQhuWBVAR5C",
+      "rol": "user",
       "ubicacion": "San Martin",
       "experiencia": "4 años"
     },
     {
-      "id": 6,
-      "nombre": "Gustavo",
-      "email": "gus@gmail.com",
-      "password": "$2b$10$YcZ6AdQWjinaA33Zh00O4OTVnk558iV0bUsLDVSqBkyWyfy10hShm",
-      "rol": "profe",
+      "id": 4,
+      "nombre": "Javier",
+      "email": "jav@gmail.com",
+      "password": "$2b$10$vd4kBOLVasri3AYwnDEf9uUgQ4DhJKctpUSeLa8P2ZdFvLoUDbk.6",
+      "rol": "user",
       "ubicacion": "San Martin",
       "experiencia": "4 años"
     }
